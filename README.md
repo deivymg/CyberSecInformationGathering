@@ -6,7 +6,7 @@
 1. get file in your server:
 
 ``` 
-wget https://github.com/deivymg/CyberSecInformationGathering/blob/main/redhatinfomationgathering.sh
+wget https://raw.githubusercontent.com/deivymg/CyberSecInformationGathering/main/redhatinfomationgathering.sh
 ``` 
 
 2. add execute permission
