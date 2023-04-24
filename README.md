@@ -1,4 +1,4 @@
-# CyberSecInformationGathering
+# CyberSec Information Gathering Redhat
 
 
 0. login with root
