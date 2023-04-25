@@ -67,7 +67,6 @@ echo "------------ List of process in dockers ------------" >> "$filename"
 
 ## run ps in all dockers
 container_ids=$(docker ps -q)
-
 # Iterate through the list of container IDs
 for container_id in $container_ids; do
   echo "Container ID: $container_id" >> "$filename"
@@ -75,10 +74,9 @@ for container_id in $container_ids; do
   
   # Execute 'ps aux' inside the container and print the output
   docker exec "$container_id" ps -fea >> "$filename"
-  echo "------------" >> "$filename"
-  echo "Images in container $container_id:" >> "$filename"
-  docker exec $container_id docker images  >> "$filename"
 done
+echo "------------ dockers images ------------" >> "$filename"
+docker images -a >> "$filename"
 
 # Network configuration
 echo "============ Network configuration ============" >> "$filename"
