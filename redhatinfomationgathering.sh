@@ -93,3 +93,7 @@ echo "------------ NTP ------------" >> "$filename"
 cat /etc/ntp.conf >> "$filename"
 echo "------------ IPTables rules ------------" >> "$filename"
 iptables -L >> "$filename"
+
+# Disk information 
+echo "============ Disk information ============" >> "$filename"
+df -h >> "$filename"
