@@ -70,11 +70,14 @@ container_ids=$(docker ps -q)
 
 # Iterate through the list of container IDs
 for container_id in $container_ids; do
-  echo "Container ID: $container_id"
-  echo "Processes:"
+  echo "Container ID: $container_id" >> "$filename"
+  echo "Processes:"  >> "$filename"
+  
   # Execute 'ps aux' inside the container and print the output
   docker exec "$container_id" ps -fea >> "$filename"
-  echo "------------"
+  echo "------------" >> "$filename"
+  echo "Images in container $container_id:" >> "$filename"
+  docker exec $container_id docker images  >> "$filename"
 done
 
 # Network configuration
