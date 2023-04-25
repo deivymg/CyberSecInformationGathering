@@ -73,7 +73,7 @@ for container_id in $container_ids; do
   echo "Container ID: $container_id"
   echo "Processes:"
   # Execute 'ps aux' inside the container and print the output
-  docker exec "$container_id" ps -fea
+  docker exec "$container_id" ps -fea >> "$filename"
   echo "------------"
 done
 
