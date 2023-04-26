@@ -1,14 +1,14 @@
 #!/bin/bash
 
 ###############################################################################
-# Cybersecurity information gathering for REDHAT
+# Cybersecurity information gathering for ORACLE LINUX
 #
 # Author: ing. Deivy Martínez
 # Requires root privileges to run
 ###############################################################################
 
 VERSION=0.1.0
-
+ 
 # Prompt for filename
 echo "Enter the full path of the output file:"
 read -r filename
