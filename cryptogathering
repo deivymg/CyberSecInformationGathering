@@ -10,7 +10,7 @@
 # Requires root privileges to run
 ###############################################################################
 
-VERSION=0.1.0
+VERSION=0.2.0
  
 # Prompt for filename
 echo "Enter the full path of the output file:"
@@ -30,10 +30,9 @@ else
   exit 1
 fi
 
-# Host ID information
 echo "============ Information Gathering for Server '$(cat /etc/hostname)' ============" >> "$filename"
 
-echo "Hostname: '$(cat /etc/hostname)'" 
+
 # Services and server configuration
 echo "============ Services and server configuration ============" >> "$filename"
 echo "------------ OS version ------------" >> "$filename"
@@ -84,7 +83,7 @@ docker images -a >> "$filename"
 # Network configuration
 echo "============ Network configuration ============" >> "$filename"
 echo "------------ Netstat ------------" >> "$filename"
-ss -tulpn >> "$filename"
+netstat -an >> "$filename"
 echo "------------ Sysctl config ------------" >> "$filename"
 cat /etc/sysctl.conf >> "$filename"
 echo "------------ ip link show ------------" >> "$filename"
@@ -102,3 +101,6 @@ iptables -L >> "$filename"
 echo "============ Disk information ============" >> "$filename"
 df -h >> "$filename"
 
+# Busuqeda de archiovos 
+echo "============ Archivos encontrados ============" >> "$filename"
+find / \( -name ".pdf" -o -name ".xls*" -o -name ".ppt*" -o -name ".doc*" \) -type f -exec sh -c "ls -l '{}';" \; | awk -F',' -v start="$6" '{ for (i=start; i<=NF; i++)printf "%s ", $i;printf"\n"}'; >> "$filename";
