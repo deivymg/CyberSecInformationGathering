@@ -103,4 +103,4 @@ df -h >> "$filename"
 
 # Busuqeda de archiovos 
 echo "============ Archivos encontrados ============" >> "$filename"
-find / \( -name ".pdf" -o -name ".xls*" -o -name ".ppt" -o -name ".doc" \) -type f -exec sh -c "ls -l '{}';" \; | awk -F',' -v start="$6" '{ for (i=start; i<=NF; i++)printf "%s ", $i;p    rintf"\n"}' >> "$filename";
+find / \( -name "*.pdf*" -o -name "*.xls*" -o -name "*.ppt*" -o -name "*.doc*" \) -type f -exec sh -c "ls -l '{}';" \; | awk -F',' -v start="$6" '{ for (i=start; i<=NF; i++)printf "%s ", $i;printf"\n"}' >> "$filename";
